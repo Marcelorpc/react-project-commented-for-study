@@ -5,6 +5,27 @@ import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 import { Post } from './components/Post'
 
+//criei um array de posts para ser renderizado de forma dinamica
+//em um projeto real, as informacoes de cada propriedade viriam dinamicamente de um banco de dados do backend
+const posts = [
+  {
+    id: 1,
+    //o author e um objeto, pos cada autor precisa de um avatar, nome e uma area de atuacao
+    author: {
+      avatarUrl: 'https://avatars.githubusercontent.com/u/105247533?v=4',
+      name: 'Marcelo Paiva',
+      role: 'Web Developer',
+    },
+    publishedAt: '2024-01-30 16:00:00',
+    //o content e um array, pos podemos ter variacoes nas informacoes, tendo mais ou menos paragrafos, links etc
+    content: [
+      //cada elemento do array vai ser um objeto com propriedades, indicado o tipo de informacao que vai ser 
+      //recebida de o conteudo dessa informacao
+      {type: 'paragraph', content: 'teste conteudo post'},
+      {type: 'link', content: 'jane.design/doctorcare'},
+    ]
+  },
+]
 
 //Uso a funcao App para renderizar a pagina principal, chamando os componentes que criei
 //Os modulos css importados sao especificos para cada componente
