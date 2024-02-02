@@ -16,7 +16,8 @@ const posts = [
       name: 'Marcelo Paiva',
       role: 'Web Developer',
     },
-    publishedAt: '2024-01-30 16:00:00',
+    //usei o new Date para indicar um formato de data que seja entendido como data
+    publishedAt: new Date ('2024-01-30 16:00:00'),
     //o content e um array, pos podemos ter variacoes nas informacoes, tendo mais ou menos paragrafos, links etc
     content: [
       //cada elemento do array vai ser um objeto com propriedades, indicado o tipo de informacao que vai ser 
@@ -32,7 +33,7 @@ const posts = [
       name: 'Marcelo Paiva',
       role: 'Web Developer',
     },
-    publishedAt: '2024-01-13 16:00:00',
+    publishedAt: new Date('2024-01-13 16:00:00'),
     content: [
       {type: 'paragraph', content: 'teste conteudo post'},
       {type: 'link', content: 'jane.design/doctorcare'},
