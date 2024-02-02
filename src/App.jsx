@@ -53,10 +53,13 @@ function App() {
       <main className={styles.wrapper}>
         <Sidebar />
         {/*}uso o map para renderizar todos os posts do array, e em cada post eu passo as propriedades
-        necessarias para o componente post{*/}
+        necessarias para o componente post
+        Adicionei a key para corrigir o erro no console, cada elemento precisa ter uma key unica e 
+        ser passado no primeiro elemento do retorno{*/}
         <div>
           {posts.map(post => {
             return(<Post 
+              key={post.id}
               author={post.author}
               publishedAt={post.publishedAt}
               content={post.content}
