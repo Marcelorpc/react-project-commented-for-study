@@ -3,8 +3,22 @@ import { Comment } from './Comment.jsx'
 
 import { Avatar } from "./Avatar"
 
+//instalei o pacote date-fns e importei o format
+//o formatDistanceToNow para pegar o tempo relativo da postagem ate o momento
+// o set para 
+import { format, formatDistanceToNow, set } from "date-fns"
+//Por padrao o pacote vem em ingles, entao faco a importacao do ptBR
+import ptBR from "date-fns/locale/pt-BR"
+
 //fiz desestruturacao para receber as propriedades vindas do app
 export function Post({author, publishedAt, content}) {
+  //Uso o format para formatar a informacao da data de acordo com o que quero
+  //posso acessar o site para ver os padroes de formatacoes possiveis
+  //no final, informo que deve ser em ptBR que importei
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'as' HH:mm'h'", {
+    locale: ptBR
+  })
+
   return (
     <article className={styles.post}>
       <header>
@@ -17,8 +31,9 @@ export function Post({author, publishedAt, content}) {
           </div>
         </div>
 
-        <time title="teste" dateTime="teste">
-          {publishedAt}
+        {/*}Utilizo a data que fiz o format para o title, e a data relativetoNow para o conteudo{*/}
+        <time title={publishedDateFormatted} dateTime="teste">
+          {publishedDateFormatted}
         </time>
       </header>
       {/*}uso o map para retornar o conteudo de acordo com o tipo dele, com a tag correta para cada caso{*/}
