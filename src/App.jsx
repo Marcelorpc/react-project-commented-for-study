@@ -9,7 +9,6 @@ import { Post } from './components/Post'
 //em um projeto real, as informacoes de cada propriedade viriam dinamicamente de um banco de dados do backend
 const posts = [
   {
-    id: 1,
     //o author e um objeto, pos cada autor precisa de um avatar, nome e uma area de atuacao
     author: {
       avatarUrl: 'https://avatars.githubusercontent.com/u/105247533?v=4',
@@ -38,10 +37,16 @@ function App() {
       
       <main className={styles.wrapper}>
         <Sidebar />
-
+        {/*}uso o map para renderizar todos os posts do array, e em cada post eu passo as propriedades
+        necessarias para o componente post{*/}
         <div>
-          <Post />
-          <Post />
+          {posts.map(post => {
+            return(<Post 
+              author={post.author}
+              publishedAt={post.publishedAt}
+              content={post.content}
+            />)
+          })}
         </div>
       </main>
     </div>

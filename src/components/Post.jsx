@@ -3,26 +3,33 @@ import { Comment } from './Comment.jsx'
 
 import { Avatar } from "./Avatar"
 
-export function Post() {
+//fiz desestruturacao para receber as propriedades vindas do app
+export function Post({author, publishedAt, content}) {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://avatars.githubusercontent.com/u/105247533?v=4" />
+          <Avatar src={author.avatarUrl} />
           
           <div className={styles.authorInfo}>
-            <strong>Marcelo Paiva</strong>
-            <span>Web developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
         <time title="teste" dateTime="teste">
-          "ha 1h"
+          {publishedAt}
         </time>
       </header>
-
+      {/*}uso o map para retornar o conteudo de acordo com o tipo dele, com a tag correta para cada caso{*/}
       <div className={styles.content}>
-        <div>conteudo</div>
+        {content.map(line => {
+          if(line.type == 'paragraph'){
+            return <p>{line.content}</p>
+          } else if(line.type == 'link'){
+            return <p><a>{line.content}</a></p>
+          }
+        })}
       </div>
 
       <form className={styles.commentForm}>
