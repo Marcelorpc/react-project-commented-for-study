@@ -32,7 +32,7 @@ const posts = [
       name: 'Marcelo Paiva',
       role: 'Web Developer',
     },
-    publishedAt: '2024-01-30 16:00:00',
+    publishedAt: '2024-01-13 16:00:00',
     content: [
       {type: 'paragraph', content: 'teste conteudo post'},
       {type: 'link', content: 'jane.design/doctorcare'},
