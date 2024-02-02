@@ -19,6 +19,13 @@ export function Post({author, publishedAt, content}) {
     locale: ptBR
   })
 
+  //uso o formatDistanceToNow para formatar o conteudo da data
+  //no ingles, o sufixo e relativo ao nosso prefixo nesse caso
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  })
+
   return (
     <article className={styles.post}>
       <header>
@@ -33,7 +40,7 @@ export function Post({author, publishedAt, content}) {
 
         {/*}Utilizo a data que fiz o format para o title, e a data relativetoNow para o conteudo{*/}
         <time title={publishedDateFormatted} dateTime="teste">
-          {publishedDateFormatted}
+          {publishedDateRelativeToNow}
         </time>
       </header>
       {/*}uso o map para retornar o conteudo de acordo com o tipo dele, com a tag correta para cada caso{*/}
