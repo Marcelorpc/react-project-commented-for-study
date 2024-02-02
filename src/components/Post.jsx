@@ -38,8 +38,10 @@ export function Post({author, publishedAt, content}) {
           </div>
         </div>
 
-        {/*}Utilizo a data que fiz o format para o title, e a data relativetoNow para o conteudo{*/}
-        <time title={publishedDateFormatted} dateTime="teste">
+        {/*}Utilizo a data que fiz o format para o title, e a data relativetoNow para o conteudo
+        o metodo toISOString foi utilizado para converter para uma string o valor de data que recebo
+        e foi passado no dateTime para converter para o computador entender{*/}
+        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
           {publishedDateRelativeToNow}
         </time>
       </header>
